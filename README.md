@@ -4,6 +4,15 @@ Site vitrine one-page pour **NOVAE**, studio numérique & IA (Mali).
 HTML / CSS / JavaScript statiques : aucun serveur, aucune base de données,
 aucune installation nécessaire.
 
+## Site en ligne
+
+**<https://amycom14-lab.github.io/novae-site/>**
+
+Hébergement gratuit **GitHub Pages**, dépôt
+[`amycom14-lab/novae-site`](https://github.com/amycom14-lab/novae-site).
+Le site se met à jour automatiquement à chaque envoi sur la branche `main`
+(compter une minute).
+
 ## Aperçu en local
 
 Double-clique sur `index.html` : le site s'ouvre dans le navigateur.
@@ -35,33 +44,48 @@ site-novae/
 └── README.md
 ```
 
-## Mettre en ligne (gratuit)
+## Mettre à jour le site
 
-### Option 1 — Netlify Drop (le plus simple, 2 minutes)
+Le site est déjà en ligne. Chaque modification envoyée sur la branche `main`
+du dépôt est publiée automatiquement en une minute environ.
+
+### A. Depuis GitHub (sans terminal)
+
+1. Ouvre <https://github.com/amycom14-lab/novae-site>.
+2. **Add file → Upload files**, puis dépose les fichiers modifiés
+   (`index.html`, `assets/styles.css`, etc.).
+3. Clique sur **Commit changes**. GitHub Pages republie le site.
+
+### B. En ligne de commande
+
+```powershell
+git clone https://github.com/amycom14-lab/novae-site.git
+# copie les fichiers modifiés dans le dossier cloné
+cd novae-site
+git add -A
+git commit -m "Mise à jour du site"
+git push
+```
+
+## Changer d'hébergeur (facultatif)
+
+### Netlify Drop
 
 1. Va sur <https://app.netlify.com/drop>.
 2. Glisse le dossier `site-novae` dans la page.
 3. Le site est en ligne avec une adresse du type `novae-xxx.netlify.app`.
-4. Dans **Site settings → Domain management**, ajoute ton nom de domaine
-   (ex. `novae.ml`) si tu en achètes un.
 
-### Option 2 — Vercel
+### Vercel
 
 1. Crée un compte sur <https://vercel.com>.
 2. **Add New → Project → Deploy** et importe le dossier (ou le dépôt Git).
 3. Framework preset : **Other**. Aucune commande de build.
 
-### Option 3 — Hébergement classique (cPanel, OVH, Hostinger…)
+### Hébergement classique (cPanel, OVH, Hostinger…)
 
 1. Ouvre le gestionnaire de fichiers de l'hébergeur.
 2. Envoie **tout le contenu** de `site-novae/` dans `public_html/`.
 3. Vérifie que `index.html` est bien à la racine.
-
-### Option 4 — GitHub Pages
-
-1. Pousse le dossier dans un dépôt GitHub.
-2. **Settings → Pages → Deploy from a branch** → branche `main`, dossier `/root`.
-3. Le site sera disponible sur `https://utilisateur.github.io/depot/`.
 
 ## Personnaliser
 
@@ -128,17 +152,18 @@ Détails techniques intégrés :
 - bouton WhatsApp flottant masqué à l'approche de la section contact ou du
   pied de page sur mobile, pour ne rien recouvrir.
 
-## Avant la mise en ligne — checklist
+## Après la mise en ligne — checklist
 
-- [ ] Remplacer `votre-domaine.com` dans `robots.txt` et `sitemap.xml`.
-- [ ] Ajouter la balise `canonical` dans `index.html` (elle est en commentaire).
-- [ ] Remplacer `og:image` par l'URL absolue de l'image :
-      `https://ton-domaine.com/og-image.png`.
-- [ ] Vérifier le numéro WhatsApp et l'email.
-- [ ] Tester le formulaire sur téléphone.
-- [ ] Tester le menu mobile et les liens d'ancre.
-- [ ] Vérifier l'affichage sur un vrai téléphone (portrait et paysage).
+- [x] URL `canonical`, `og:url` et `og:image` configurées pour GitHub Pages.
+- [x] `robots.txt` et `sitemap.xml` pointent vers le site en ligne.
+- [x] Numéro WhatsApp, email et liens vérifiés.
+- [ ] Envoyer le site à quelques proches et tester sur un vrai téléphone
+      (portrait et paysage).
+- [ ] Tester le formulaire WhatsApp depuis un téléphone.
 - [ ] Tester l'impression (Ctrl+P) : le contenu doit rester lisible sur fond blanc.
+- [ ] Quand un nom de domaine est acheté : le remplacer dans `index.html`
+      (`canonical`, `og:url`, `og:image`), `robots.txt` et `sitemap.xml`,
+      puis ajouter le domaine dans **Settings → Pages → Custom domain**.
 
 ## Notes techniques
 
