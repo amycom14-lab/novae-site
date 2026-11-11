@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amycom14-lab.github.io/novae-site/sitemap.xml

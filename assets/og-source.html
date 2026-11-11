@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative;
+    background:
+      radial-gradient(760px 520px at 82% -12%, rgba(79,140,255,.3), transparent 62%),
+      radial-gradient(620px 460px at 4% 32%, rgba(168,85,247,.2), transparent 60%),
+      radial-gradient(560px 420px at 94% 104%, rgba(56,225,214,.14), transparent 62%),
+      #06080f;
+    color: #f4f7ff;
+    font-family: "Inter", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding: 58px 64px;
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(circle at 55% 35%, #000, transparent 75%);
+            mask-image: radial-gradient(circle at 55% 35%, #000, transparent 75%);
+  }
+  .content { position: relative; display: flex; flex-direction: column; height: 100%; }
+  .top { display: flex; align-items: center; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .mark {
+    width: 50px; height: 50px; border-radius: 14px; display: grid; place-items: center;
+    background: linear-gradient(140deg, #4f8cff, #a855f7);
+    box-shadow: 0 10px 28px rgba(79,140,255,.35), inset 0 1px 0 rgba(255,255,255,.35);
+  }
+  .mark svg { width: 27px; height: 27px; }
+  .brand-name { font-family: "Space Grotesk", sans-serif; font-size: 24px; font-weight: 700; letter-spacing: .18em; }
+  .brand-sub { margin-top: 4px; font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: #9aa3b8; }
+  .top-right { text-align: right; font-size: 10px; letter-spacing: .26em; text-transform: uppercase; color: #9aa3b8; line-height: 1.9; }
+  .top-right strong { color: #f4f7ff; font-weight: 500; }
+  .mid { flex: 1; display: flex; align-items: center; gap: 30px; }
+  .copy { flex: 1; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 9px; padding: 7px 14px;
+    border: 1px solid rgba(255,255,255,.14); border-radius: 999px;
+    background: rgba(255,255,255,.04); font-size: 10px; letter-spacing: .22em;
+    text-transform: uppercase; color: #c9d2e6;
+  }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: #d8ff5e; box-shadow: 0 0 12px #d8ff5e; }
+  h1 {
+    margin-top: 22px; font-family: "Space Grotesk", sans-serif;
+    font-size: 72px; line-height: .96; letter-spacing: -.035em; font-weight: 600;
+  }
+  .grad { background: linear-gradient(100deg,#7fb0ff,#b98cff 48%,#5ff0e4); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .sub { margin-top: 18px; font-size: 17px; font-weight: 300; line-height: 1.55; color: #b9c2d6; max-width: 480px; }
+  .visual { position: relative; width: 330px; height: 330px; flex: 0 0 330px; }
+  .visual::before {
+    content: ""; position: absolute; inset: 18%; border-radius: 50%;
+    background: radial-gradient(circle, rgba(79,140,255,.5), rgba(168,85,247,.15) 55%, transparent 70%);
+    filter: blur(30px);
+  }
+  .orbit { position: absolute; border: 1px solid rgba(255,255,255,.1); border-radius: 50%; }
+  .o1 { inset: 3%; }
+  .o2 { inset: 18%; border-style: dashed; }
+  .o3 { inset: 33%; }
+  .core {
+    position: absolute; inset: 40%; display: grid; place-items: center; border-radius: 30%;
+    background: linear-gradient(140deg,#4f8cff,#a855f7);
+    box-shadow: 0 0 60px rgba(79,140,255,.5), inset 0 1px 0 rgba(255,255,255,.4);
+  }
+  .core svg { width: 52%; height: 52%; }
+  .sat {
+    position: absolute; padding: 7px 13px; border: 1px solid rgba(255,255,255,.14);
+    border-radius: 999px; background: rgba(10,15,28,.9);
+    font-size: 11px; color: #dce4f5; white-space: nowrap;
+    box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  }
+  .s1 { top: 0; left: 50%; transform: translateX(-50%); }
+  .s2 { top: 45%; right: -2%; }
+  .s3 { bottom: 0; left: 50%; transform: translateX(-50%); }
+  .s4 { top: 45%; left: -2%; }
+  .bottom {
+    display: flex; align-items: center; gap: 26px;
+    padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1);
+    font-size: 12px; letter-spacing: .06em; color: #c3ccde;
+  }
+  .bottom span { display: inline-flex; align-items: center; gap: 8px; }
+  .bottom i { width: 5px; height: 5px; border-radius: 50%; background: #d8ff5e; }
+  .bottom .spacer { flex: 1; }
+  .bottom .mail { color: #8d98ae; }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="content">
+    <div class="top">
+      <div class="brand">
+        <span class="mark">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 2.2c.55 4.7 3.1 7.25 7.8 7.8-4.7.55-7.25 3.1-7.8 7.8-.55-4.7-3.1-7.25-7.8-7.8 4.7-.55 7.25-3.1 7.8-7.8Z" fill="#fff"/>
+            <circle cx="18.6" cy="18.4" r="1.9" fill="#fff" opacity=".85"/>
+          </svg>
+        </span>
+        <div>
+          <div class="brand-name">NOVAE</div>
+          <div class="brand-sub">Studio numérique &amp; IA</div>
+        </div>
+      </div>
+      <div class="top-right"><strong>Sites web</strong> · Applications · IA<br />Mali · Afrique de l'Ouest</div>
+    </div>
+
+    <div class="mid">
+      <div class="copy">
+        <div class="eyebrow"><span class="dot"></span> Votre partenaire digital</div>
+        <h1>Votre idée.<br /><span class="grad">Notre code.</span></h1>
+        <p class="sub">Sites web, applications et solutions d'IA conçus pour faire grandir votre entreprise.</p>
+      </div>
+      <div class="visual">
+        <span class="orbit o1"></span><span class="orbit o2"></span><span class="orbit o3"></span>
+        <span class="core">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 2.2c.55 4.7 3.1 7.25 7.8 7.8-4.7.55-7.25 3.1-7.8 7.8-.55-4.7-3.1-7.25-7.8-7.8 4.7-.55 7.25-3.1 7.8-7.8Z" fill="#fff"/>
+            <circle cx="18.6" cy="18.4" r="1.9" fill="#fff" opacity=".85"/>
+          </svg>
+        </span>
+        <span class="sat s1">Sites web</span>
+        <span class="sat s2">Applications</span>
+        <span class="sat s3">IA</span>
+        <span class="sat s4">Data</span>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <span><i></i> +223 93 74 49 51</span>
+      <span class="mail">contact.novae07@gmail.com</span>
+      <span class="spacer"></span>
+      <span>Devis gratuit · Réponse sous 48 h</span>
+    </div>
+  </div>
+</body>
+</html>
